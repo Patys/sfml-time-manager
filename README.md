@@ -1,6 +1,16 @@
 # sfml-time-manager
 Manager to run function after specific time.
 
+# Installation
+
+`git submodule add https://github.com/patys/sfml-time-manager Time`
+
+It will create submodule in your git project. Now you can just
+
+```
+#include "Time/Time.hpp"
+```
+
 # Usage
 ```
 Time gameTime;
