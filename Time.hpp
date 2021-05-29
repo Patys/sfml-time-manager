@@ -26,6 +26,15 @@ public:
     }
   }
 
+  void onMonth(std::function<void ()> func)
+  {
+    int day = ticks % 30;
+
+    if(day == 0) {
+      func();
+    }
+  }
+
   void setSpeedFactor(float factor)
   {
     resume();
