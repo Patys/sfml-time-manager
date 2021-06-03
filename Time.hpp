@@ -20,6 +20,12 @@ public:
     if(elapsedTime >= deltaTime) {
       // run sth
       func();
+
+      // onMonth
+      int day = ticks % 30;
+      if(day == 0) {
+        onClientMonth();
+      }
       // run sth ^
       elapsedTime -= deltaTime;
       ticks++;
@@ -28,11 +34,7 @@ public:
 
   void onMonth(std::function<void ()> func)
   {
-    int day = ticks % 30;
-
-    if(day == 0) {
-      func();
-    }
+    onClientMonth = func;
   }
 
   void setSpeedFactor(float factor)
@@ -85,6 +87,8 @@ private:
   sf::Clock clock;
   sf::Time deltaTime;
   sf::Clock deltaClock;
+
+  std::function<void ()> onClientMonth;
 
   bool paused;
   float time;
